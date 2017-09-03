@@ -25,6 +25,7 @@ class Robot
   end
 
   def place(x, y, facing)
+    self.placed_once = true unless placed_once
     position.move_to(x, y, facing)
   end
 end

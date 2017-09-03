@@ -51,7 +51,6 @@ class Simulator
 
   def place_robot(x, y, facing)
     robot.place(x, y, facing)
-    robot.placed_once = true unless robot.placed_once
   end
 end
 
