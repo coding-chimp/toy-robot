@@ -31,6 +31,9 @@ class Position
   end
 
   def going_to_fall?
-    x == 5 || y == 5 || x == 0 || y == 0
+    (x == 5 && facing == 'EAST') ||
+      (y == 5 && facing == 'NORTH') ||
+      (x == 0 && facing == 'WEST') ||
+      (y == 0 && facing == 'SOUTH')
   end
 end
