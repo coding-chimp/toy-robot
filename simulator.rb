@@ -24,7 +24,7 @@ class Simulator
   end
 
   def run_by_from_file
-    file = File.readlines(ARGV[0])
+    file = File.readlines(file_name)
     file.each { |command| self.command = command.strip; execute }
   end
 
