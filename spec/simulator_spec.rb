@@ -24,6 +24,12 @@ describe Simulator do
       expect { @simulator.run }.to output("3,5,NORTH\n").to_stdout
     end
 
+    it 'should run simulator with reading from file with valid and invalid commands' do
+      @simulator.file_name = File.expand_path(File.dirname(__FILE__) + '/notfoundfile.txt')
+      @simulator.read_from_file = true
+      expect { @simulator.run }.to output("#{@simulator.file_name} does not exist!\n").to_stdout
+    end
+
     it 'should run simulator with user input' do
       commands = ['PLACE 1,2,EAST', 'MOVE', 'MOVE', 'LEFT', 'MOVE']
 

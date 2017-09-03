@@ -26,6 +26,8 @@ class Simulator
   def run_by_from_file
     file = File.readlines(file_name)
     file.each { |command| self.command = command.strip; execute }
+  rescue Errno::ENOENT
+    puts "#{file_name} does not exist!"
   end
 
   def execute
