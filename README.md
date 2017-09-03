@@ -10,14 +10,14 @@ Commands can come from command line or user specified file.
 
 To use with command line inputs:
 
-```ruby simulator.rb``` and prompt commands like (MOVE, LEFT, etc.) sequentially.
+```ruby main.rb``` and prompt commands like (MOVE, LEFT, etc.) sequentially.
 
 To use with file option just run simulator ruby file with input file:
 
-```ruby simulator.rb path/to/file```
+```ruby main.rb path/to/file```
 
-e.g. ```ruby simulator.rb sample.txt``` or
-     ```ruby simulator.rb /Users/abc/sample.txt```
+e.g. ```ruby main.rb sample.txt``` or
+     ```ruby main.rb /Users/abc/sample.txt```
 
 ## Tests
 
