@@ -31,9 +31,9 @@ class Position
   end
 
   def going_to_fall?
-    (x == 5 && facing == 'EAST') ||
-      (y == 5 && facing == 'NORTH') ||
-      (x == 0 && facing == 'WEST') ||
-      (y == 0 && facing == 'SOUTH')
+    (x == Simulator::TABLE_MAX && facing == 'EAST') ||
+      (y == Simulator::TABLE_MAX && facing == 'NORTH') ||
+      (x == Simulator::TABLE_MIN && facing == 'WEST') ||
+      (y == Simulator::TABLE_MIN && facing == 'SOUTH')
   end
 end
