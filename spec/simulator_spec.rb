@@ -12,10 +12,16 @@ describe Simulator do
   end
 
   describe '#run' do
-    it 'should run simulator with reading from file' do
+    it 'should run simulator with reading from file with all valid commands' do
       @simulator.file_name = File.expand_path(File.dirname(__FILE__) + '/test.txt')
       @simulator.read_from_file = true
       expect { @simulator.run }.to output("3,3,NORTH\n").to_stdout
+    end
+
+    it 'should run simulator with reading from file with valid and invalid commands' do
+      @simulator.file_name = File.expand_path(File.dirname(__FILE__) + '/corrupted_test.txt')
+      @simulator.read_from_file = true
+      expect { @simulator.run }.to output("3,5,NORTH\n").to_stdout
     end
 
     it 'should run simulator with user input' do
@@ -28,6 +34,18 @@ describe Simulator do
 
       @simulator.command = 'REPORT'
       expect { @simulator.execute }.to output("3,3,NORTH\n").to_stdout
+    end
+
+    it 'should run simulator with user input with valid and invalid commands' do
+      commands = ['PLACE 6,7,EAST', 'PLACE 3,4,NORTH', 'MOVE', 'MOVE']
+
+      commands.each do |command|
+        @simulator.command = command
+        @simulator.execute
+      end
+
+      @simulator.command = 'REPORT'
+      expect { @simulator.execute }.to output("3,5,NORTH\n").to_stdout
     end
   end
 
